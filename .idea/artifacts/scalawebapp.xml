@@ -1,0 +1,18 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" build-on-make="true" name="scalawebapp">
+    <output-path>$PROJECT_DIR$/out/artifacts/scalawebapp</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="ScalaWebApp" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="scala-library" />
+          <element id="library" level="project" name="scala-compiler" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="ScalaWebApp1/web/Web" />
+      <element id="javaee-facet-resources" facet="ScalaWebApp/web/Web" />
+    </root>
+  </artifact>
+</component>

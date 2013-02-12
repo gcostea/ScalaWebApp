@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core">
+<h:head>
+    <title>Simple JSF Facelets page</title>
+</h:head>
+<h:body>
+    <h:form>
+        <h:panelGrid>
+            <h:commandButton value="To Upper" actionListener="#{indexBean.transformList1}">
+                <f:ajax execute="@this" render="@all" />
+            </h:commandButton>
+            <h:commandButton value="Reverse" actionListener="#{indexBean.transformList2}">
+                <f:ajax execute="@this" render="@all" />
+            </h:commandButton>
+            <h:panelGroup layout="block">
+                <h:outputLabel value="String List: " for="stringList" />
+                <h:outputLabel value="[ Empty ]" rendered="#{empty indexBean.strings}" />
+                <ol>
+                    <ui:repeat id="stringList" value="#{indexBean.strings}" var="str">
+                    <li>
+                        <h:outputText value="#{str}" />
+                    </li>
+                    </ui:repeat>
+                </ol>
+            </h:panelGroup>
+
+            <h:panelGrid columns="3">
+                <h:outputLabel for="stringInput" value="String:" />
+                <h:inputText id="stringInput" value="#{indexBean.currentString}">
+                    <f:validateRequired />
+                </h:inputText>
+                <h:message for="stringInput" />
+                <h:commandButton value="Add" actionListener="#{indexBean.addToList}" />
+            </h:panelGrid>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+</html>
